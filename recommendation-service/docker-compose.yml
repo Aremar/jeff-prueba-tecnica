@@ -1,0 +1,36 @@
+networks:
+  jeff-net: {}
+
+services:
+  mysql:
+    container_name: jeff-technicaltest-mysql
+    image: mysql:8
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=jeff_test
+      - MYSQL_USER=jeffuser
+      - MYSQL_PASSWORD=mypassword
+      - MYSQL_ALLOW_EMPTY_PASSWORD=no
+    entrypoint:
+      sh -c "
+      /usr/local/bin/docker-entrypoint.sh --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+      "
+    command: [ "--default-authentication-plugin=mysql_native_password" ]
+    healthcheck:
+      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+      timeout: 5s
+      retries: 10
+    networks:
+      - jeff-net
+  recommendation:
+    container_name: jeff-technicaltest-recommendation
+    image: aremar/jeff-techtest
+    ports:
+      - "8081:8081"
+    networks:
+      - jeff-net
+    depends_on:
+      mysql:
+        condition: service_healthy

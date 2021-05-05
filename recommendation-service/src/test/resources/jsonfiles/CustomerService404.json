@@ -1,0 +1,7 @@
+{ 
+    "timestamp": "2021-05-03T17:59:52.52600:00", 
+    "status": 404, 
+    "error": "Not Found", 
+    "message": "Customer not found", 
+    "path": "/customers/1" 
+}

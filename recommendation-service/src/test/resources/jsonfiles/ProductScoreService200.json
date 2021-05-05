@@ -1,0 +1,22 @@
+[ 
+    { 
+        "productId": 1, 
+        "persona": "JUNIOR", 
+        "score": 8 
+    }, 
+    { 
+        "productId": 2, 
+        "persona": "JUNIOR", 
+        "score": 8 
+    }, 
+    { 
+        "productId": 1, 
+        "persona": "SENIOR", 
+        "score": 7 
+    }, 
+    { 
+        "productId": 2, 
+        "persona": "SENIOR", 
+        "score": 6 
+    } 
+]
