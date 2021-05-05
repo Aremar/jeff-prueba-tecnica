@@ -26,6 +26,7 @@ services:
       - jeff-net
   recommendation:
     container_name: jeff-technicaltest-recommendation
+    command: --spring.profiles.active=local
     image: aremar/jeff-techtest
     ports:
       - "8081:8081"
